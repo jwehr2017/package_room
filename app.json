@@ -1,0 +1,1 @@
+{"name":"Package Room ","repository":"https://github.com/jwehr2017/package_room","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
