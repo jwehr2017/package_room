@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "apartments#index"
   # Routes for the Employee resource:
   # CREATE
   get "/employees/new", :controller => "employees", :action => "new"
