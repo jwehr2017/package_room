@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Resident #<%= @resident.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Apartment</dt>
+      <dd><%= @resident.apartment_id %></dd>
+
+      <dt>Phone number</dt>
+      <dd><%= @resident.phone_number %></dd>
+
+      <dt>Email address</dt>
+      <dd><%= @resident.email_address %></dd>
+
+      <dt>User</dt>
+      <dd><%= @resident.user_id %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @resident.name %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/residents" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/residents/<%= @resident.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_resident/<%= @resident.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
