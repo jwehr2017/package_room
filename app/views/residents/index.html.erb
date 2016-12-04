@@ -19,7 +19,7 @@
 
       <% @residents.each do |resident| %>
       <tr>
-        <td><%= resident.apartment_id %></td>
+        <td><%= resident.apartment.apartment_number %></td>
         <td><%= resident.phone_number %></td>
         <td><%= resident.email_address %></td>
         <td><%= resident.user_id %></td>
