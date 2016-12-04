@@ -23,7 +23,7 @@
         <td><%= package.resident.apartment_id %></td>
         <td><%= package.contact_time %></td>
         <td><%= package.contact_type %></td>
-        <td><%= package.employee_id %></td>
+        <td><%= package.employee.user_id %></td>
         <td>
           <a href="/packages/<%= package.id %>" class="btn btn-primary">Show</a>
           <a href="/packages/<%= package.id %>/edit" class="btn btn-warning">Edit</a>
