@@ -10,7 +10,8 @@ class ResidentsController < ApplicationController
   end
 
   def index
-    @residents = Resident.page(params[:page]).per(10)
+    @q = Resident.ransack(params[:q])
+    @residents = @q.result(:distinct => true).includes(:apartment, :packages, :user).page(params[:page]).per(10)
 
     render("residents/index.html.erb")
   end
