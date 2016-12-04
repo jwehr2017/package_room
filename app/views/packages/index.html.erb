@@ -19,7 +19,7 @@
 
       <% @packages.each do |package| %>
       <tr>
-        <td><%= package.location_id %></td>
+        <td><%= package.location.name %></td>
         <td><%= package.resident_id %></td>
         <td><%= package.contact_time %></td>
         <td><%= package.contact_type %></td>
