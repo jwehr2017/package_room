@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all
+    @employees = Employee.page(params[:page]).per(10)
 
     render("employees/index.html.erb")
   end

@@ -10,7 +10,7 @@ class ResidentsController < ApplicationController
   end
 
   def index
-    @residents = Resident.all
+    @residents = Resident.page(params[:page]).per(10)
 
     render("residents/index.html.erb")
   end
