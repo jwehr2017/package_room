@@ -65,6 +65,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_package" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for location_id -->
+      <div class="form-group">
+        <label for="location_id" class="control-label">
+          Location
+        </label>
+
+        <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for resident_id -->
+      <input type="hidden" name="resident_id" value="<%= @resident.id %>">
+
+      <!-- Label and input for contact_time -->
+      <div class="form-group">
+        <label for="contact_time" class="control-label">
+          Contact time
+        </label>
+
+        <input type="text" id="contact_time" name="contact_time" placeholder="Contact time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for contact_type -->
+      <div class="form-group">
+        <label for="contact_type" class="control-label">
+          Contact type
+        </label>
+
+        <input type="text" id="contact_type" name="contact_type" placeholder="Contact type" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for employee_id -->
+      <div class="form-group">
+        <label for="employee_id" class="control-label">
+          Employee
+        </label>
+
+        <%= select_tag(:employee_id, options_from_collection_for_select(Employee.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Package
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

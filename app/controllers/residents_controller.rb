@@ -16,6 +16,7 @@ class ResidentsController < ApplicationController
   end
 
   def show
+    @package = Package.new
     @resident = Resident.find(params[:id])
 
     render("residents/show.html.erb")

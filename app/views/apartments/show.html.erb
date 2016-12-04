@@ -51,6 +51,50 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_resident" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for apartment_id -->
+      <input type="hidden" name="apartment_id" value="<%= @apartment.id %>">
+
+      <!-- Label and input for phone_number -->
+      <div class="form-group">
+        <label for="phone_number" class="control-label">
+          Phone number
+        </label>
+
+        <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for email_address -->
+      <div class="form-group">
+        <label for="email_address" class="control-label">
+          Email address
+        </label>
+
+        <input type="text" id="email_address" name="email_address" placeholder="Email address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Resident
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

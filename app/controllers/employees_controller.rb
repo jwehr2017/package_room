@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
   end
 
   def show
+    @package = Package.new
     @employee = Employee.find(params[:id])
 
     render("employees/show.html.erb")
