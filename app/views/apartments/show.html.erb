@@ -23,3 +23,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Apartment has many residents -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Residents
+      </li>
+
+      <% @apartment.residents.each do |resident| %>
+        <li class="list-group-item">
+          <a href="/residents/<%= resident.id %>">
+            <%= resident.apartment_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/residents/<%= resident.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/residents/<%= resident.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_resident/<%= resident.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
