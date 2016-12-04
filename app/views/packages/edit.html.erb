@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @package.errors.any? %>
+  <% @package.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Package #<%= @package.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_package/<%= @package.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for location_id -->
+      <div class="form-group">
+        <label for="location_id" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location_id" name="location_id" placeholder="Location" class="form-control" value="<%= @package.location_id %>">
+      </div>
+
+      <!-- Label and input for resident_id -->
+      <div class="form-group">
+        <label for="resident_id" class="control-label">
+          Resident
+        </label>
+
+        <input type="text" id="resident_id" name="resident_id" placeholder="Resident" class="form-control" value="<%= @package.resident_id %>">
+      </div>
+
+      <!-- Label and input for contact_time -->
+      <div class="form-group">
+        <label for="contact_time" class="control-label">
+          Contact time
+        </label>
+
+        <input type="text" id="contact_time" name="contact_time" placeholder="Contact time" class="form-control" value="<%= @package.contact_time %>">
+      </div>
+
+      <!-- Label and input for contact_type -->
+      <div class="form-group">
+        <label for="contact_type" class="control-label">
+          Contact type
+        </label>
+
+        <input type="text" id="contact_type" name="contact_type" placeholder="Contact type" class="form-control" value="<%= @package.contact_type %>">
+      </div>
+
+      <!-- Label and input for employee_id -->
+      <div class="form-group">
+        <label for="employee_id" class="control-label">
+          Employee
+        </label>
+
+        <input type="text" id="employee_id" name="employee_id" placeholder="Employee" class="form-control" value="<%= @package.employee_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Package
+      </button>
+      or
+      <a href="/packages/<%= @package.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
