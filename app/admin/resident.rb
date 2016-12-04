@@ -1,5 +1,7 @@
 ActiveAdmin.register Resident do
 
+ permit_params :apartment_id, :phone_number, :email_address, :user_id, :name
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
