@@ -60,7 +60,7 @@
           Employee
         </label>
 
-        <input type="text" id="employee_id" name="employee_id" placeholder="Employee" class="form-control" value="<%= @package.employee_id %>">
+        <%= select_tag(:employee_id, options_from_collection_for_select(Employee.all, :id, :user_id, @package.employee_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
