@@ -26,8 +26,11 @@
         <td><%= resident.name %></td>
         <td>
           <a href="/residents/<%= resident.id %>" class="btn btn-primary">Show</a>
-          <a href="/residents/<%= resident.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_resident/<%= resident.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == resident.user %>
+            <a href="/residents/<%= resident.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_resident/<%= resident.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

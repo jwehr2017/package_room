@@ -1,4 +1,14 @@
 class ResidentsController < ApplicationController
+  before_action :current_user_must_be_resident_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_resident_user
+    resident = Resident.find(params[:id])
+
+    unless current_user == resident.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @residents = Resident.all
 
