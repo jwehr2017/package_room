@@ -19,11 +19,29 @@
 
       <% @packages.each do |package| %>
       <tr>
-        <td><%= package.location.name %></td>
-        <td><%= package.resident.apartment_id %></td>
+        <td>
+          <% if package.location.present? %>
+            <a href="/locations/<%= package.location.id %>">
+              <%= package.location.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if package.resident.present? %>
+            <a href="/residents/<%= package.resident.id %>">
+              <%= package.resident.apartment_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= package.contact_time %></td>
         <td><%= package.contact_type %></td>
-        <td><%= package.employee.user_id %></td>
+        <td>
+          <% if package.employee.present? %>
+            <a href="/employees/<%= package.employee.id %>">
+              <%= package.employee.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/packages/<%= package.id %>" class="btn btn-primary">Show</a>
           <a href="/packages/<%= package.id %>/edit" class="btn btn-warning">Edit</a>

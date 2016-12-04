@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Location</dt>
-      <dd><%= @package.location_id %></dd>
+      <dd>
+        <% if @package.location.present? %>
+          <a href="/locations/<%= @package.location_id %>">
+            <%= @package.location.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Resident</dt>
-      <dd><%= @package.resident_id %></dd>
+      <dd>
+        <% if @package.resident.present? %>
+          <a href="/residents/<%= @package.resident_id %>">
+            <%= @package.resident.apartment_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Contact time</dt>
       <dd><%= @package.contact_time %></dd>
@@ -18,7 +30,13 @@
       <dd><%= @package.contact_type %></dd>
 
       <dt>Employee</dt>
-      <dd><%= @package.employee_id %></dd>
+      <dd>
+        <% if @package.employee.present? %>
+          <a href="/employees/<%= @package.employee_id %>">
+            <%= @package.employee.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

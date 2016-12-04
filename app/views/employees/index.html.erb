@@ -15,7 +15,13 @@
 
       <% @employees.each do |employee| %>
       <tr>
-        <td><%= employee.user.email %></td>
+        <td>
+          <% if employee.user.present? %>
+            <a href="/users/<%= employee.user.id %>">
+              <%= employee.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/employees/<%= employee.id %>" class="btn btn-primary">Show</a>
           <a href="/employees/<%= employee.id %>/edit" class="btn btn-warning">Edit</a>

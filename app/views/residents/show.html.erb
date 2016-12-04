@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Apartment</dt>
-      <dd><%= @resident.apartment_id %></dd>
+      <dd>
+        <% if @resident.apartment.present? %>
+          <a href="/apartments/<%= @resident.apartment_id %>">
+            <%= @resident.apartment.apartment_number %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Phone number</dt>
       <dd><%= @resident.phone_number %></dd>
@@ -15,7 +21,13 @@
       <dd><%= @resident.email_address %></dd>
 
       <dt>User</dt>
-      <dd><%= @resident.user_id %></dd>
+      <dd>
+        <% if @resident.user.present? %>
+          <a href="/users/<%= @resident.user_id %>">
+            <%= @resident.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Name</dt>
       <dd><%= @resident.name %></dd>

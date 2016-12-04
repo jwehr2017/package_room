@@ -19,10 +19,22 @@
 
       <% @residents.each do |resident| %>
       <tr>
-        <td><%= resident.apartment.apartment_number %></td>
+        <td>
+          <% if resident.apartment.present? %>
+            <a href="/apartments/<%= resident.apartment.id %>">
+              <%= resident.apartment.apartment_number %>
+            </a>
+          <% end %>
+        </td>
         <td><%= resident.phone_number %></td>
         <td><%= resident.email_address %></td>
-        <td><%= resident.user.email %></td>
+        <td>
+          <% if resident.user.present? %>
+            <a href="/users/<%= resident.user.id %>">
+              <%= resident.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= resident.name %></td>
         <td>
           <a href="/residents/<%= resident.id %>" class="btn btn-primary">Show</a>
