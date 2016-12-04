@@ -33,7 +33,7 @@
           Resident
         </label>
 
-        <input type="text" id="resident_id" name="resident_id" placeholder="Resident" class="form-control" value="<%= @package.resident_id %>">
+        <%= select_tag(:resident_id, options_from_collection_for_select(Resident.all, :id, :apartment_id, @package.resident_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for contact_time -->
